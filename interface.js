@@ -1,19 +1,23 @@
 'use strict';
 
-let url = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/politics/blog/2014/feb/17/alex-salmond-speech-first-minister-scottish-independence-eu-currency-live?show-fields=body"
+let url = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?order-by=newest&show-fields=body&show-elements=image&page-size=20&show-fields=thumbnail"
 
 function getNewsData(){
   return fetch(url)
-  .then(response => {response.json()
-  .then(json => {
-    console.log(json.response.content)
-    })
+  .then(response => { return response.json() 
+  // .then(json => {
+  //   console.log(json.response)
+  //   })
   })
 };
 
 function renderData(news){
-  return news.response
+  return news.response.results
 }
 
 
 getNewsData()
+.then( response => {
+  console.log(renderData(response))
+}
+)
