@@ -9,7 +9,7 @@ function getNewsData(){
 };
 
 function renderNews(newsData){
-  // return news.response.results
+  console.log(newsData.response.results)
   let allNews = newsData.response.results
   for(let i = 0 ; i < allNews.length ; i++){
     let selected = {
@@ -27,7 +27,7 @@ function renderTitles(articles){
   for( let i = 0; i < articles.length; i++){
     let title = articles[i].webTitle
     // let url = articles[i].webUrl
-    let titleHTML = `<p id=#${[i]+1}>${title}</p>`
+    let titleHTML = `<p id=#${[i+1]}>${title}</p>`
     titles.push(titleHTML)
   }
   return titles
