@@ -22,15 +22,15 @@ function renderNews(newsData){
   return articles
 }
 
-function renderTitles(articles){
+function renderTitles(articlesArray){
   let titles = []
-  for( let i = 0; i < articles.length; i++){
-    let title = articles[i].webTitle
-    // let url = articles[i].webUrl
-    let titleHTML = `<p id=#${[i+1]}>${title}</p>`
+  for( let i = 0; i < articlesArray.length; i++){
+    let title = articlesArray[i].webTitle
+    let url = articlesArray[i].webUrl
+    let titleHTML = `<h3 id=#${i+1}>${title}</h3><a href=${url} id=#${i+1} class='link'>Open</a>`
     titles.push(titleHTML)
   }
-  return titles
+  return titles.join('')
 }
 
 getNewsData()
