@@ -9,6 +9,7 @@ function getNewsData(){
 };
 
 function renderNews(newsData){
+  console.log(newsData.response)
   console.log(newsData.response.results)
   let allNews = newsData.response.results
   for(let i = 0 ; i < allNews.length ; i++){
