@@ -1,0 +1,30 @@
+body {
+  font-family: menlo;
+  max-width: 500px;
+  margin: auto;
+}
+
+#news {
+  font-size: 55px;
+  color: hotpink;
+  text-align: center;
+}
+
+.title {
+  color: cadetblue;
+}
+
+.link {
+  color: indigo;
+  text-align: center;
+}
+
+.box {
+  border-radius: 1px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  padding: 20px;
+  width: 500px;
+  margin: 35px;
+}

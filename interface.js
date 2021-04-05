@@ -27,7 +27,7 @@ function renderTitles(articlesArray){
   for( let i = 0; i < articlesArray.length; i++){
     let title = articlesArray[i].webTitle
     let url = articlesArray[i].webUrl
-    let titleHTML = `<h3 id=#${i+1}>${title}</h3><a href=${url} id=#${i+1} class='link'>Open</a>`
+    let titleHTML = `<div class='box'><h3 class ='title' id=#${i+1}>${title}</h3><a href=${url} id=#${i+1} class='link'>Open</a></div>`
     titles.push(titleHTML)
   }
   return titles.join('')
