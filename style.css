@@ -1,5 +1,6 @@
 body {
   font-family: menlo;
+  align-content: center;
   max-width: 500px;
   margin: auto;
 }
@@ -8,6 +9,12 @@ body {
   font-size: 55px;
   color: hotpink;
   text-align: center;
+  border-style: solid;
+  border-radius: 2px;
+  align-content: center;
+  padding: 20px;
+  width: 500px;
+  margin: 35px;
 }
 
 .title {
@@ -23,7 +30,7 @@ body {
   border-radius: 1px;
   border-color: black;
   border-width: 2px;
-  border-style: solid;
+  border-style: ridge;
   padding: 20px;
   width: 500px;
   margin: 35px;
