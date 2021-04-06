@@ -1,6 +1,6 @@
 'use strict';
 
-let url = "http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=politics&api-key=test"
+let url = "http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&api-key=test"
 let articles = []
 
 function getNewsData(){
@@ -13,7 +13,6 @@ function renderNews(newsData){
   console.log(newsData.response.results)
   let allNews = newsData.response.results
   for(let i = 0 ; i < allNews.length ; i++){
-    console.log(allNews[i].fields.bodyText);
     let selected = {
       webTitle: allNews[i].webTitle,
       webUrl: allNews[i].webUrl,
@@ -21,7 +20,6 @@ function renderNews(newsData){
     }
     articles.push(selected)
   }
-  console.log(articles)
   return articles
 }
 
@@ -29,16 +27,29 @@ function renderTitles(articlesArray){
   let titles = []
   for( let i = 0; i < articlesArray.length; i++){
     let title = articlesArray[i].webTitle
-    let url = articlesArray[i].webUrl
-    let titleHTML = `<div class='box'><h3 class ='title' id=#${i+1}>${title}</h3><a href=${url} id=#${i+1} class='link'>Open</a></div>`
+    let body = articlesArray[i].body
+    let titleHTML = `<div class='box'><h3 class ='title' id=#${i+1}>${title}</h3><button onclick=body id=#${i+1} class='link'>Open</button></div>`
     titles.push(titleHTML)
   }
   return titles.join('')
 }
 
+function renderBody(articlesArray){
+  let bodyText=[]
+  for( let i = 0; i < articlesArray.length; i++){
+    let body = articlesArray[i].body
+    let bodyHTML = `<p>${body}</p>`
+    bodyText.push[bodyHTML]
+  }
+  console.log(bodyText)
+  return bodyText
+}
 getNewsData()
   .then( response => {
   let articles = renderNews(response)
   let titles = renderTitles(articles)
+  let body = renderBody(articles)
   document.getElementById('headlines').innerHTML = titles
+  document.getElementById('text').innerHTML = body
   })
+
