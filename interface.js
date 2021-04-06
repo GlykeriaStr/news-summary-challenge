@@ -1,6 +1,6 @@
 'use strict';
 
-let url = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/search?order-by=newest&show-fields=body&show-elements=image&page-size=20&show-fields=thumbnail"
+let url = "http://content.guardianapis.com/search?order-by=newest&show-fields=bodyText&q=politics&api-key=test"
 let articles = []
 
 function getNewsData(){
@@ -13,9 +13,11 @@ function renderNews(newsData){
   console.log(newsData.response.results)
   let allNews = newsData.response.results
   for(let i = 0 ; i < allNews.length ; i++){
+    console.log(allNews[i].fields.bodyText);
     let selected = {
       webTitle: allNews[i].webTitle,
-      webUrl: allNews[i].webUrl
+      webUrl: allNews[i].webUrl,
+      body: allNews[i].fields.bodyText
     }
     articles.push(selected)
   }
